@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Base Chatbot</title>
+  <meta name="description" content="Ask questions about your documents and get answers with sources.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%233b5bdb'/%3E%3Cpath d='M7 6.5h8.5v10H8a1 1 0 0 0-1 1zM7 17.5a1 1 0 0 0 1 1h7.5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Knowledge base">
+      <div class="brand">
+        <div class="logo" id="brand-logo"></div>
+        <div>
+          <div class="brand-name">Knowledge Base</div>
+          <div class="brand-sub" id="brand-sub">&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="kb-head">
+        <h2>Documents</h2>
+        <button type="button" class="icon-btn primary" id="upload-btn" title="Add documents" aria-label="Add documents"></button>
+      </div>
+      <input type="search" id="doc-filter" class="doc-filter" placeholder="Filter documents" aria-label="Filter documents">
+      <div class="select-row">
+        <label><input type="checkbox" id="select-all"> Select all</label>
+        <span id="doc-count"></span>
+      </div>
+      <ul class="doc-list" id="doc-list"></ul>
+      <p class="drop-hint">Drag files here or use + to add PDF, Word, Markdown or text files.</p>
+
+      <div class="sidebar-foot">
+        <div class="usage" id="usage"></div>
+        <div class="engine" id="engine"></div>
+      </div>
+      <input type="file" id="file-input" multiple accept=".pdf,.docx,.md,.markdown,.txt" hidden>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-head">
+        <button type="button" class="icon-btn only-mobile" id="menu-btn" aria-label="Show documents"></button>
+        <div class="chat-title">
+          <span id="chat-title">Ask your documents</span>
+          <span class="scope" id="scope"></span>
+        </div>
+        <button type="button" class="ghost-btn" id="new-chat">New chat</button>
+        <button type="button" class="icon-btn only-embed" id="embed-close" aria-label="Close chat"></button>
+      </header>
+
+      <div class="messages" id="messages" aria-live="polite"></div>
+
+      <form class="composer" id="composer">
+        <div class="composer-box">
+          <textarea id="input" rows="1" maxlength="2000" placeholder="Ask a question about your documents..." aria-label="Your question"></textarea>
+          <button type="submit" class="send-btn" id="send" aria-label="Send" disabled></button>
+        </div>
+        <p class="composer-note">Answers use only the selected documents. Check important details in the source.</p>
+      </form>
+    </main>
+
+    <aside class="viewer" id="viewer" aria-label="Source viewer" hidden>
+      <header class="viewer-head">
+        <span class="badge" id="viewer-badge"></span>
+        <span class="viewer-name" id="viewer-name"></span>
+        <a class="ghost-btn small" id="viewer-open" href="#" target="_blank" rel="noopener">Open file</a>
+        <button type="button" class="icon-btn" id="viewer-close" aria-label="Close source viewer"></button>
+      </header>
+      <div class="viewer-tools">
+        <div class="seg only-pdf" role="group" aria-label="View">
+          <button type="button" data-mode="page">Page</button>
+          <button type="button" data-mode="text">Text</button>
+        </div>
+        <div class="pager only-pdf">
+          <button type="button" class="icon-btn" id="prev-page" aria-label="Previous page">&lsaquo;</button>
+          <span id="page-label">1 / 1</span>
+          <button type="button" class="icon-btn" id="next-page" aria-label="Next page">&rsaquo;</button>
+        </div>
+        <div class="zoom only-page">
+          <button type="button" class="icon-btn" id="zoom-out" aria-label="Zoom out">&minus;</button>
+          <span id="zoom-label">100%</span>
+          <button type="button" class="icon-btn" id="zoom-in" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+      <p class="viewer-note" id="viewer-note" hidden></p>
+      <div class="viewer-body" id="viewer-body"></div>
+    </aside>
+  </div>
+
+  <div class="backdrop" id="backdrop"></div>
+  <div class="drop-overlay" id="drop-overlay" hidden>
+    <div class="drop-card"><span class="drop-icon"></span>Drop files to add them to the knowledge base</div>
+  </div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+name: knowledge-base-chatbot
+
+services:
+  app:
+    build: .
+    image: knowledge-base-chatbot:latest
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATA_DIR: /data
+      EMBEDDING_CACHE_DIR: /models
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - kb-data:/data
+      # keeps any embedding model downloaded at runtime (the default one is already in the image)
+      - kb-models:/models
+    # lets the app reach a model server running on your computer, such as Ollama
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+volumes:
+  kb-data:
+  kb-models:

@@ -1,0 +1,22 @@
+{"question": "How many vacation days do full-time employees get?", "expect": "25 days of paid vacation per calendar year"}
+{"question": "How much vacation can I take during my probation period?", "expect": "you can take up to 5 of those days"}
+{"question": "Can I carry unused vacation days into next year?", "expect": "carry up to 5 unused days into the next year"}
+{"question": "When do I need a doctor's note for sick leave?", "expect": "fit note from a doctor"}
+{"question": "How long can I work from another country?", "expect": "up to 20 working days in any 12 month"}
+{"question": "What is the meal allowance when travelling for work?", "expect": "£40 per day"}
+{"question": "Can I book business class flights?", "expect": "economy class for flights under 6 hours"}
+{"question": "How big is the home office budget?", "expect": "one-off budget of £300"}
+{"question": "How much is the yearly learning budget?", "expect": "learning budget of £1,000 per calendar year"}
+{"question": "What is the notice period when I resign?", "expect": "two months after it"}
+{"question": "How quickly do I have to report a stolen laptop?", "expect": "report it to IT within 1 hour of noticing"}
+{"question": "How long must passwords be?", "expect": "at least 14 characters long"}
+{"question": "Am I allowed to use a USB stick?", "expect": "USB storage devices are blocked"}
+{"question": "How should I handle customer contracts?", "expect": "Named people only, never on personal devices"}
+{"question": "What should I do with a suspicious email?", "expect": "Report Phishing button"}
+{"question": "Does Northwind integrate with Salesforce?", "expect": "HubSpot, Salesforce and Pipedrive"}
+{"question": "How often is data refreshed on the Team plan?", "expect": "Team plans refresh every hour"}
+{"question": "Is there a free trial and how long is it?", "expect": "14 day free trial"}
+{"question": "In which countries is customer data stored?", "expect": "London and Frankfurt"}
+{"question": "When is customer support available?", "expect": "Monday to Friday, 08:00 to 18:00 UK time"}
+{"question": "How much does the Team plan cost?", "expect": "£59 per user per month"}
+{"question": "Which single sign-on providers are supported?", "expect": "Google Workspace, Microsoft Entra ID and Okta"}
